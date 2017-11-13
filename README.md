@@ -1,5 +1,7 @@
 # `spring-boot-starter-thymeleaf`
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/gregswindle/spring-boot-starter-thymeleaf.svg)](https://greenkeeper.io/)
+
 __TODO:__ Put badges here.
 
 > Starter project for designing HTML templates with Spring Boot, Thymeleaf, and Node.js tooling.

@@ -5,10 +5,12 @@
 [![Java Dependency Status](https://dependencyci.com/github/gregswindle/spring-boot-starter-thymeleaf/badge)](https://dependencyci.com/github/gregswindle/spring-boot-starter-thymeleaf)
 [![Node.js Dependency Status][depstat-image]][depstat-url]
 [![Node.js DevDependency Status][depstat-dev-image]][depstat-dev-url]
+[![Greenkeeper badge](https://badges.greenkeeper.io/gregswindle/spring-boot-starter-thymeleaf.svg)](https://greenkeeper.io/)
 <br>
 [![Appveyor Status][appveyor-image]][appveyor-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
+
 
 > Starter project for designing HTML templates with Spring Boot, Thymeleaf, and Node.js tooling.
 

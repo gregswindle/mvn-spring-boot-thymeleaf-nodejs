@@ -4,15 +4,10 @@
 	"collectCoverage": true,
 	"coverageDirectory": "./coverage/",
 	"coveragePathIgnorePatterns": [
-		"/__fixtures__/",
-		"/__mocks__/",
-		"/__tests__/__fixtures__/",
-		"/admin/",
-		"/api/",
-		"/core/",
 		"/docs/",
 		"/node_modules/",
 		"/site/",
+    "/src/test/resources/",
     "/target/"
 	],
 	"coverageThreshold": {

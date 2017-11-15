@@ -441,3 +441,9 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 # End of https://www.gitignore.io/api/angular,archive,archives,archlinuxpackages,code-java,compressed,compressedarchive,compression,gradle,grunt,java,java-web,jdeveloper,maven,node,scala,sonar
+
+
+## Customizations
+
+## Ignore exec-maven-plugin artifacts
+npm/

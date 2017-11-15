@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:text="${title}"></title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" th:content="${title}" />
+<meta name="author" content="Greg Swindle" />
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="css/common/demo.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="jumbotron">
+			<h1 th:text="${title}"></h1>
+			<p th:text="'Hello, ' + ${name} + '!'" />
+		</div>
+	</div>
+
+	<div class="container">
+		<!-- Example row of columns -->
+		<div class="row">
+			<div class="col-md-4">
+				<div class="alert alert-info" role="alert">
+					<h4 class="alert-heading"><img src="/img/icons8-about-40.png" /> "Your name" and "Page title"
+						values</h4>
+					<p>
+						<a href="http://www.thymeleaf.org/documentation.html" target="_docs">Thymeleaf</a> renders the
+						<tt>&lt;h1&gt;</tt>
+						,
+						<tt>&lt;title&gt;</tt>
+						, and
+						<tt>name</tt>
+						elements on the server. It receives their values from the query
+						string.
+					</p>
+					<hr />
+					<p class="mb-0">
+						Add your
+						<tt>name</tt>
+						or a custom page
+						<tt>title</tt>
+						with the
+						<tt>input</tt>
+						elements below, or modify the
+						<tt>query-string</tt>
+						in your browser's
+						<tt>address</tt>
+						bar to demonstrate this.
+					</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<h2>Your name is...?</h2>
+				<p>Let's get to know each other.</p>
+				<p>
+					<input type="text" id="name" th:placeholder="${name}"
+						class="form-control" /> <br />
+					<button class="btn btn-secondary" role="button" id="btnName">Update
+						your name</button>
+				</p>
+			</div>
+			<div class="col-md-4">
+				<h2>Page title</h2>
+				<p>Rename this page's title.</p>
+				<p>
+					<input type="text" id="title" th:placeholder="${title}"
+						class="form-control" /> <br />
+					<button class="btn btn-secondary" role="button" id="btnTitle">Rename
+						the page title</button>
+				</p>
+			</div>
+		</div>
+
+		<hr />
+
+	</div>
+	<!-- /container -->
+	<script src="/js/page-updater.js"></script>
+	<script>
+		const page = new PageUpdater({
+			name : {
+				input : {
+					id : 'name'
+				},
+				button : {
+					id : 'btnName'
+				}
+			},
+			title : {
+				input : {
+					id : 'title'
+				},
+				button : {
+					id : 'btnTitle'
+				}
+			}
+		});
+	</script>
+</body>
+</html>

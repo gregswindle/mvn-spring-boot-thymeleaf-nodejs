@@ -26,9 +26,7 @@
     "scope": "\\S+.*"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
-    "markdown-magic": "0.1.19",
-    "markdown-magic-install-command": "1.3.1"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
     "babel-jest": "21.2.0",
@@ -52,10 +50,13 @@
     "fixpack": "2.3.1",
     "jest": "21.2.1",
     "jest-cli": "21.2.1",
+    "markdown-magic": "0.1.19",
     "markdown-magic-dependency-table": "1.3.2",
+    "markdown-magic-install-command": "1.3.1",
     "markdown-magic-package-scripts": "1.2.1",
     "markdown-toc": "1.2.0",
     "nsp": "3.1.0",
+    "snyk": "1.49.2",
     "standard-version": "4.2.0"
   },
   "engines": {
@@ -85,12 +86,15 @@
     "lint:js": "eslint ./src/**/resources/**/*.js --fix",
     "lint:manifest": "./node_modules/.bin/fixpack",
     "lint:node-version": "check-node-version --package",
+    "outdated": "npm outdated",
     "posttest": "npm run security",
     "prepublish": "npm run security",
     "pretest": "npm prune && npm run lint",
     "release": "standard-version",
-    "security": "npm run security:nsp:scan",
-    "security:nsp:scan": "nsp ./node_modules/.bin/check",
+    "security": "npm run security:nsp:scan && npm run security:snyk:scan",
+    "security:nsp:scan": "nsp check",
+    "security:snyk:monitor": "snyk monitor",
+    "security:snyk:scan": "snyk test",
     "test": "jest --forceExit --config=jest.config.json"
   }
 }

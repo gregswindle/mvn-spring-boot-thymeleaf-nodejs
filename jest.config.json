@@ -1,5 +1,5 @@
 {
-	"name": "spring-boot-starter-thymeleaf",
+	"name": "mvn-spring-boot-thymeleaf-nodejs",
 	"automock": false,
 	"collectCoverage": true,
 	"coverageDirectory": "./coverage/",

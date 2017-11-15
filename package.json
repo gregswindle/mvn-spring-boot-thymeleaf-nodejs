@@ -1,5 +1,5 @@
 {
-  "name": "spring-boot-starter-thymeleaf",
+  "name": "mvn-spring-boot-thymeleaf-nodejs",
   "description": "Starter project for designing HTML templates with Spring Boot, Thymeleaf, and Node.js tooling.",
   "version": "0.0.1",
   "author": {
@@ -7,7 +7,7 @@
     "email": "gregory.jay.swindle@verizon.com",
     "url": "https://github.com/gregswindle"
   },
-  "bugs": "https://github.com/gregswindle/spring-boot-starter-thymeleaf/issues",
+  "bugs": "https://github.com/gregswindle/mvn-spring-boot-thymeleaf-nodejs/issues",
   "commitplease": {
     "style": "angular",
     "types": [
@@ -70,7 +70,7 @@
     }
   },
   "files": [],
-  "homepage": "https://github.com/gregswindle/spring-boot-starter-thymeleaf",
+  "homepage": "https://github.com/gregswindle/mvn-spring-boot-thymeleaf-nodejs",
   "jest": {
     "testEnvironment": "node"
   },
@@ -78,7 +78,7 @@
   "license": "MIT",
   "main": "index.js",
   "private": true,
-  "repository": "gregswindle/spring-boot-starter-thymeleaf",
+  "repository": "gregswindle/mvn-spring-boot-thymeleaf-nodejs",
   "scripts": {
     "docs": "md-magic --path '{.github/*.md,**/*.md}' '**/*.md' --ignore 'node_modules' --config ./markdown.config.js",
     "docs:script": "node ./markdown.config.js",

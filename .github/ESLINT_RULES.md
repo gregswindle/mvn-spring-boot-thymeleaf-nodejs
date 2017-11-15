@@ -1,6 +1,6 @@
 # `ESLint` rules
 
-`spring-boot-starter-thymeleaf` enforces the following code standards with `ESLint`.
+`mvn-spring-boot-thymeleaf-nodejs` enforces the following code standards with `ESLint`.
 
 ## Table of contents
 

@@ -90,7 +90,7 @@ $ ./mvnw clean install -DskipTests
 $ ./mvnw spring-boot:run
 ```
 
-> **:bulb: TIP:** Open http://localhost:8080/hello?name=Thymeleaf%20professional in a web browser to view the web site.
+> **:bulb: TIP:** Open http://localhost:8080/home?name=Thymeleaf%20professional in a web browser to view the web site.
 
 ### 4.2. Build the site
 

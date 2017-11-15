@@ -1,6 +1,6 @@
 'use strict'
 
-const demo = require('../../../../src/main/resources/static/demo')
+const demo = require('../../../../../src/main/resources/static/js/demo')
 
 describe('demo', () => {
   it('adds numbers', () => {

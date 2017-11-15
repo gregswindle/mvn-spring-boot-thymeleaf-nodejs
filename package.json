@@ -83,7 +83,7 @@
     "docs": "md-magic --path '{.github/*.md,**/*.md}' '**/*.md' --ignore 'node_modules' --config ./markdown.config.js",
     "docs:script": "node ./markdown.config.js",
     "lint": "npm run lint:node-version && npm run lint:js && npm run lint:manifest",
-    "lint:js": "eslint ./src/**/resources/**/*.js --fix",
+    "lint:js": "eslint ./src/!{test}/resources/**/*.js --fix",
     "lint:manifest": "./node_modules/.bin/fixpack",
     "lint:node-version": "check-node-version --package",
     "outdated": "npm outdated",

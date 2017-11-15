@@ -14,28 +14,30 @@
 
 ## Table of contents
 <!-- ⛔️ AUTO-GENERATED-CONTENT:START (TOC:excludeText=Table of contents) -->
-- [Overview](#overview)
-- [Getting started](#getting-started)
-  * [Prerequisite software](#prerequisite-software)
-  * [Installation](#installation)
-- [Configuration](#configuration)
-  * [CI-service accounts](#ci-service-accounts)
-- [Usage](#usage)
-  * [Build the site](#build-the-site)
-  * [Generate project reports](#generate-project-reports)
-- [Background](#background)
-- [Semantic version and `CHANGELOG`](#semantic-version-and-changelog)
-- [Contributing to `spring-boot-starter-thymeleaf`](#contributing-to-spring-boot-starter-thymeleaf)
-- [License](#license)
+- [1. Overview](#1-overview)
+- [2. Getting started](#2-getting-started)
+  * [2.1. Prerequisite software](#21-prerequisite-software)
+  * [2.2. Installation](#22-installation)
+- [3. Configuration](#3-configuration)
+- [4. Usage](#4-usage)
+  * [4.1. Launch the site (locally)](#41-launch-the-site-locally)
+  * [4.2. Build the site](#42-build-the-site)
+  * [4.3. Execute Java and JavaScript unit tests](#43-execute-java-and-javascript-unit-tests)
+  * [4.4. List all build dependencies](#44-list-all-build-dependencies)
+  * [4.5. Generate Javadocs](#45-generate-javadocs)
+  * [4.6. Generate project reports](#46-generate-project-reports)
+- [5. Semantic version and `CHANGELOG`](#5-semantic-version-and-changelog)
+- [6. Contributing](#6-contributing)
+- [7. License](#7-license)
 <!-- ⛔️ AUTO-GENERATED-CONTENT:END -->
 
-## Overview
+## 1. Overview
 
 `spring-boot-starter-thymeleaf` uses the Spring Project [`spring-boot-starter-thymeleaf`][spring-boot-starter-thymeleaf-mvn-repo-url] with the [`exec-maven-plugin`][exec-maven-plugin-url] in order to execute [`npm-run-scripts`][npm-run-script-url] during [Maven's build lifecycle][maven-build-lifecycle-url].
 
-## Getting started
+## 2. Getting started
 
-### Prerequisite software
+### 2.1. Prerequisite software
 
 `spring-boot-starter-thymeleaf` is written in Java and JavaScript, both of which must be installed prior to use. Java and JavaScript require npm and Maven respectively, which are used for installing dependencies and executing build, test, and deploy tasks.
 
@@ -46,7 +48,7 @@
 | Node.js (includes npm)  | **Yes**. If you cannot install `nvm`, install Node.js. | All             | Required for JavaScript build, test, and deploy automation.                                                                                                               |
 | `nvm`                   | **No**, but _highly_ recommended.                      | macOS and Linux | Node Version Manager allows you to install and switch among multiple versions of Node.js (and npm) via the CLI. Most cloud-based CI services (e.g., Travis CI) use `nvm`. |
 
-### Installation
+### 2.2. Installation
 
 Open a Terminal and run:
 
@@ -66,11 +68,9 @@ Install all Java and JavaScript dependencies:
 $ ./mvnw clean install -DskipTests
 ```
 
-## Configuration
+## 3. Configuration
 
 `spring-boot-starter-thymeleaf` uses several CI-services to automate build and test execution. All are optional, but if you choose to use them, you'll need to modify your `pom.xml` and `package.json` manifest files.
-
-### CI-service accounts
 
 | Service      | Category         | Required    | Notes                                                                                                                                                                                                      |
 |--------------|------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -82,9 +82,9 @@ $ ./mvnw clean install -DskipTests
 | Travis CI    | CI               | **No**      | Build and test on Linux and macOS.                                                                                                                                                                         |
 
 
-## Usage
+## 4. Usage
 
-### Launch the site (locally)
+### 4.1. Launch the site (locally)
 
 ```bash
 $ ./mvnw spring-boot:run
@@ -92,25 +92,25 @@ $ ./mvnw spring-boot:run
 
 > **:bulb: TIP:** Open http://localhost:8080/hello?name=Thymeleaf%20professional in a web browser to view the web site.
 
-### Build the site
+### 4.2. Build the site
 
 ```bash
 $ ./mvnw package
 ```
 
-### Execute Java and JavaScript unit tests
+### 4.3. Execute Java and JavaScript unit tests
 
 ```bash
 $ ./mvnw test
 ```
 
-### List all build dependencies
+### 4.4. List all build dependencies
 
 ```bash
 $ ./mvnw dependency:tree
 ```
 
-### Generate Javadocs
+### 4.5. Generate Javadocs
 
 ```bash
 $ ./mvnw javadoc:javadoc
@@ -119,7 +119,7 @@ $ ./mvnw javadoc:javadoc
 > **:bulb: Tip:** Open `./target/apidocs/index.html` in a web browser to view the Javadocs.
 
 
-### Generate project reports
+### 4.6. Generate project reports
 
 ```bash
 $ ./mvnw site
@@ -127,16 +127,17 @@ $ ./mvnw site
 
 > **:bulb: Tip:** Open `./target/site/index.html` in a web browser to view the Project Information reports.
 
-
-## Background
+<!--
+ Background
 
 _If `spring-boot-starter-thymeleaf` depends on important but not widely known abstractions or other ecosystems, explain them here. This is also a good place to explain the product's motivation if similar products already exist._
 
-## Semantic version and `CHANGELOG`
+-->
+## 5. Semantic version and `CHANGELOG`
 
 The latest version of `spring-boot-starter-thymeleaf` is `0.0.1-SNAPSHOT`. View the [`CHANGELOG`][changelog-url] for details.
 
-## Contributing to `spring-boot-starter-thymeleaf`
+## 6. Contributing
 > [![Learn how to make a Pull Request with free training][prs-welcome-badge-image]][prs-welcome-url]
 >
 > We welcome contributors with [Pull Requests][prs-welcome-url]!
@@ -149,7 +150,7 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
       * [Request a new feature][issues-new-feat-url]
   1. Follow [Contributing to `spring-boot-starter-thymeleaf`][contributing-url]'s coding conventions and Git workflow if you're willing and able to program (or want to learn how).
 
-## License
+## 7. License
 
 [MIT][license-url] © [Greg Swindle][author-url].
 

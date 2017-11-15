@@ -1,3 +1,5 @@
-platform:
-  Maven:
-    removed: skip
+runtimes:
+   removed: skip
+
+tests:
+  removed: skip

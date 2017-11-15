@@ -185,9 +185,7 @@
 						<configuration>
 							<executable>npm</executable>
 							<arguments>
-								<argument>run</argument>
 								<argument>test</argument>
-								<argument>--</argument>
 							</arguments>
 						</configuration>
 					</execution>

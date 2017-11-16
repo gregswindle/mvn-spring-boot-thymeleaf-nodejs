@@ -26,9 +26,11 @@
   * [4.4. List all build dependencies](#44-list-all-build-dependencies)
   * [4.5. Generate Javadocs](#45-generate-javadocs)
   * [4.6. Generate project reports](#46-generate-project-reports)
+  * [4.7. Run DevSecOps helper scripts](#47-run-devsecops-helper-scripts)
 - [5. Semantic version and `CHANGELOG`](#5-semantic-version-and-changelog)
 - [6. Contributing](#6-contributing)
-- [7. License](#7-license)
+- [7. Roadmap](#7-roadmap)
+- [8. License](#8-license)
 <!-- ⛔️ AUTO-GENERATED-CONTENT:END -->
 
 ## 1. Overview
@@ -41,12 +43,12 @@
 
 `mvn-spring-boot-thymeleaf-nodejs` is written in Java and JavaScript, both of which must be installed prior to use. Java and JavaScript require npm and Maven respectively, which are used for installing dependencies and executing build, test, and deploy tasks.
 
-| Dependency              | Required                                           | OS              | Notes                                                                                                                                                                     |
-|-------------------------|----------------------------------------------------|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Java JDK 8 (or greater) | **Yes**.                                               | All             | Required for all software products that depend on the Spring Framework.                                                                                                   |
-| Maven                   | **No**. This product is bundled with `mvnw`.                                              | All             | A Java build, test, and deploy management framework. Maven also manages dependencies.                                                                                     |
-| Node.js (includes npm)  | **Yes**. If you cannot install `nvm`, install Node.js. | All             | Required for JavaScript build, test, and deploy automation.                                                                                                               |
-| `nvm`                   | **No**, but _highly_ recommended.                      | macOS and Linux | Node Version Manager allows you to install and switch among multiple versions of Node.js (and npm) via the CLI. Most cloud-based CI services (e.g., Travis CI) use `nvm`. |
+| Dependency                                                                                                                | Required                                               | OS              | Notes                                                                                                                                                                     |
+|:--------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Java JDK 8 (or greater)<br>[`oracle64-1.8.x1`][oracle64-jdk8-url] or<br>[`openjdk:8-jdk-alpine`][openjdk8-jdk-alpine-url] | **Yes**.                                               | All             | Required for all software products that depend on the Spring Framework.                                                                                                   |
+| [Maven][maven-url]                                                                                                        | **No**. This product is bundled with `mvnw`.           | All             | A Java build, test, and deploy management framework. Maven also manages dependencies.                                                                                     |
+| Node.js (includes npm)                                                                                                    | **Yes**. If you cannot install `nvm`, install Node.js. | All             | Required for JavaScript build, test, and deploy automation.                                                                                                               |
+| `nvm`                                                                                                                     | **No**, but _highly_ recommended.                      | macOS and Linux | Node Version Manager allows you to install and switch among multiple versions of Node.js (and npm) via the CLI. Most cloud-based CI services (e.g., Travis CI) use `nvm`. |
 
 ### 2.2. Installation
 
@@ -72,14 +74,14 @@ $ ./mvnw clean install -DskipTests
 
 `mvn-spring-boot-thymeleaf-nodejs` uses several CI-services to automate build and test execution. All are optional, but if you choose to use them, you'll need to modify your `pom.xml` and `package.json` manifest files.
 
-| Service      | Category         | Required    | Notes                                                                                                                                                                                                      |
-|--------------|------------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Appveyor     | CI               | **No**      | Build and test on Windows servers.                                                                                                                                                                         |
-| Coveralls    | Test             | **No**      | Tracks test coverage over time.                                                                                                                                                                            |
-| DependencyCI | Dependency drift | **No**      | Tracks Java and JavaScript dependencies for updates.                                                                                                                                                       |
-| SonarCloud   | Code quality     | **No**      | "All-in-one" code quality inspection service. We use SonarCloud's measure badges in our PULL_REQUEST_TEMPLATE to quickly assess the quality of PRs.                                                        |
-| Snyk         | Security         | **No**      | This is enabled by default. To disable, use the flag `--DskipSnykScan`. To use Snyk, you'll need to follow these [Snyk installation instructions](https://github.com/snyk/snyk-maven-plugin#installation). |
-| Travis CI    | CI               | **No**      | Build and test on Linux and macOS.                                                                                                                                                                         |
+| Service      | Category         | Required | Notes                                                                                                                                                                                                      |
+|:-------------|:-----------------|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Appveyor     | CI               | **No**   | Build and test on Windows servers.                                                                                                                                                                         |
+| Coveralls    | Test             | **No**   | Tracks test coverage over time.                                                                                                                                                                            |
+| DependencyCI | Dependency drift | **No**   | Tracks Java and JavaScript dependencies for updates.                                                                                                                                                       |
+| SonarCloud   | Code quality     | **No**   | "All-in-one" code quality inspection service. We use SonarCloud's measure badges in our PULL_REQUEST_TEMPLATE to quickly assess the quality of PRs.                                                        |
+| Snyk         | Security         | **No**   | This is enabled by default. To disable, use the flag `--DskipSnykScan`. To use Snyk, you'll need to follow these [Snyk installation instructions](https://github.com/snyk/snyk-maven-plugin#installation). |
+| Travis CI    | CI               | **No**   | Build and test on Linux and macOS.                                                                                                                                                                         |
 
 
 ## 4. Usage
@@ -127,12 +129,33 @@ $ ./mvnw site
 
 > **:bulb: Tip:** Open `./target/site/index.html` in a web browser to view the Project Information reports.
 
-<!--
- Background
+### 4.7. Run DevSecOps helper scripts
 
-_If `mvn-spring-boot-thymeleaf-nodejs` depends on important but not widely known abstractions or other ecosystems, explain them here. This is also a good place to explain the product's motivation if similar products already exist._
+The following `npm-scripts` are run at various points of `mvn-spring-boot-thymeleaf-nodejs's` DevSecOps workflow. You can also run them yourself.
 
--->
+<!-- AUTO-GENERATED-CONTENT:START (SCRIPTS) -->
+| Script                  | Description                                                                                                |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------|
+| `docs`                  | `md-magic --path '{.github/*.md,**/*.md}' '**/*.md' --ignore 'node_modules' --config ./markdown.config.js` |
+| `docs:script`           | `node ./markdown.config.js`                                                                                |
+| `lint`                  | `npm run lint:node-version && npm run lint:js && npm run lint:manifest`                                    |
+| `lint:js`               | `eslint ./src/!{test}/resources/**/*.js --fix`                                                             |
+| `lint:manifest`         | `./node_modules/.bin/fixpack`                                                                              |
+| `lint:node-version`     | `check-node-version --package`                                                                             |
+| `outdated`              | `npm outdated`                                                                                             |
+| `prepublish`            | `npm run security`                                                                                         |
+| `release`               | `standard-version`                                                                                         |
+| `security`              | `npm run security:nsp:scan && npm run security:snyk:scan`                                                  |
+| `security:nsp:scan`     | `nsp check`                                                                                                |
+| `security:snyk:monitor` | `snyk monitor`                                                                                             |
+| `security:snyk:scan`    | `snyk test`                                                                                                |
+| `pretest`               | `npm prune && npm run lint`                                                                                |
+| `test`                  | `jest --forceExit --config=jest.config.json`                                                               |
+| `posttest`              | `npm run security`                                                                                         |
+<!-- AUTO-GENERATED-CONTENT:START (SCRIPTS) -->
+<!-- AUTO-GENERATED-CONTENT:END -->
+
+
 ## 5. Semantic version and `CHANGELOG`
 
 The latest version of `mvn-spring-boot-thymeleaf-nodejs` is `0.0.1-SNAPSHOT`. View the [`CHANGELOG`][changelog-url] for details.
@@ -142,6 +165,8 @@ The latest version of `mvn-spring-boot-thymeleaf-nodejs` is `0.0.1-SNAPSHOT`. Vi
 >
 > We welcome contributors with [Pull Requests][prs-welcome-url]!
 
+**[Read Contributing to `mvn-spring-boot-thymeleaf-nodejs` to get started.][contributing-url]**
+
 Contributions in the form of GitHub pull requests are welcome. Before embarking on a significant change, please adhere to the following guidelines:
 
   1. Read the [Code of Conduct][code-of-conduct-url].
@@ -150,12 +175,13 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
       * [Request a new feature][issues-new-feat-url]
   1. Follow [Contributing to `mvn-spring-boot-thymeleaf-nodejs`][contributing-url]'s coding conventions and Git workflow if you're willing and able to program (or want to learn how).
 
-## 7. License
+## 7. Roadmap
+
+To make these quality assurance goals easier to consume and manage, I'll likely bundle everything into a maven-plugin. I need to test and analyze stuff more in the meantime, however.
+
+## 8. License
 
 [MIT][license-url] © [Greg Swindle][author-url].
-
-
-
 
 <!-- ⛔️ 📝 NOTE: PLEASE ALPHABETIZE LINK REFERENCES. 📝 ⛔️ -->
 
@@ -181,14 +207,17 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
 [license-url]: ./LICENSE
 [license-url]: ./LICENSE
 [maven-build-lifecycle-url]: https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html
+[mvn-spring-boot-thymeleaf-nodejs-mvn-repo-url]: https://mvnrepository.com/artifact/org.springframework.boot/mvn-spring-boot-thymeleaf-nodejs
+[maven-url]: https://maven.apache.org/
 [nodejs-url]: https://nodejs.org
 [npm-image]: https://img.shields.io/npm/v/mvn-spring-boot-thymeleaf-nodejs.svg?style=flat-square
 [npm-run-script-url]: https://docs.npmjs.com/cli/run-script
 [npm-script-url]: https://docs.npmjs.com/misc/scripts
 [npm-url]: https://npmjs.org/package/mvn-spring-boot-thymeleaf-nodejs
 [npmjs-url]: https://www.npmjs.com/
+[openjdk8-jdk-alpine-url]: https://github.com/docker-library/openjdk/blob/b4f29ba829765552239bd18f272fcdaf09eca259/8-jdk/alpine/Dockerfile
+[oracle64-jdk8-url]: http://www.oracle.com/technetwork/java/javaee/downloads/index.html
 [prs-welcome-badge-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [prs-welcome-url]: http://makeapullrequest.com
-[mvn-spring-boot-thymeleaf-nodejs-mvn-repo-url]: https://mvnrepository.com/artifact/org.springframework.boot/mvn-spring-boot-thymeleaf-nodejs
 [travis-image]: https://img.shields.io/travis/gregswindle/mvn-spring-boot-thymeleaf-nodejs/master.svg?style=flat-square
 [travis-url]: https://travis-ci.org/gregswindle/mvn-spring-boot-thymeleaf-nodejs

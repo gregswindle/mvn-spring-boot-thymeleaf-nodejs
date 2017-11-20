@@ -64,7 +64,7 @@ Graphic art by [icons8](https://icons8.com/).
 [icon-justice-image]: docs/img/icons8/icon-justice-50.png
 [icon-pledge-image]: docs/img/icons8/icon-pledge-50.png
 [product-repo-logo-image]: ..docs/img/logo-commonalaxy.png
-[product-repo-url]: https://github.com/gregswindle/spring-boot-starter-thymeleaf
-[team-email-mailto]: mailto:greg@swindle.net?Subject=%5Bspring-boot-starter-thymeleaf%5D%20Code%20of%20conduct%20concern
-[team-issues-url]: https://github.com/gregswindle/spring-boot-starter-thymeleaf/issues/new
+[product-repo-url]: https://github.com/gregswindle/mvn-spring-boot-thymeleaf-nodejs
+[team-email-mailto]: mailto:greg@swindle.net?Subject=%5Bmvn-spring-boot-thymeleaf-nodejs%5D%20Code%20of%20conduct%20concern
+[team-issues-url]: https://github.com/gregswindle/mvn-spring-boot-thymeleaf-nodejs/issues/new
 [version]: http://contributor-covenant.org/version/1/4/

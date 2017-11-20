@@ -18,7 +18,7 @@
     <body class="topBarDisabled">
       <div class="container-fluid">
       <div id="banner">
-        <div class="pull-left"><div id="bannerLeft"><h2>spring-boot-starter-thymeleaf</h2>
+        <div class="pull-left"><div id="bannerLeft"><h2>mvn-spring-boot-thymeleaf-nodejs</h2>
 </div>
 </div>
         <div class="pull-right"></div>
@@ -39,11 +39,13 @@
           <li class="nav-header">Project Documentation</li>
     <li><a href="project-info.html" title="Project Information"><span class="icon-chevron-down"></span>Project Information</a>
       <ul class="nav nav-list">
+    <li><a href="integration.html" title="CI Management"><span class="none"></span>CI Management</a>  </li>
     <li><a href="dependencies.html" title="Dependencies"><span class="none"></span>Dependencies</a>  </li>
     <li class="active"><a href="#"><span class="none"></span>Dependency Information</a>
   </li>
     <li><a href="dependency-management.html" title="Dependency Management"><span class="none"></span>Dependency Management</a>  </li>
     <li><a href="index.html" title="About"><span class="none"></span>About</a>  </li>
+    <li><a href="issue-tracking.html" title="Issue Management"><span class="none"></span>Issue Management</a>  </li>
     <li><a href="license.html" title="Licenses"><span class="none"></span>Licenses</a>  </li>
     <li><a href="plugin-management.html" title="Plugin Management"><span class="none"></span>Plugin Management</a>  </li>
     <li><a href="plugins.html" title="Plugins"><span class="none"></span>Plugins</a>  </li>
@@ -54,7 +56,7 @@
   </li>
   </ul>
 <form id="search-form" action="https://www.google.com/search" method="get" >
-      <input value="projects.spring.io/spring-boot/spring-boot-starter-thymeleaf/" name="sitesearch" type="hidden"/>
+      <input value="github.com/gregswindle/mvn-spring-boot-thymeleaf-nodejs" name="sitesearch" type="hidden"/>
   <input class="search-query" name="q" id="query" type="text" />
 </form>
 <script type="text/javascript">asyncJs( 'https://cse.google.com/brand?form=search-form' )</script>
@@ -75,31 +77,31 @@
 <h3><a name="Apache_Maven"></a>Apache Maven</h3><a name="Apache_Maven"></a>
 <div class="source"><pre class="prettyprint linenums">&lt;dependency&gt;
   &lt;groupId&gt;com.example&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+  &lt;artifactId&gt;mvn-spring-boot-thymeleaf-nodejs&lt;/artifactId&gt;
   &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</pre></div></div>
 <div class="section">
 <h3><a name="Apache_Buildr"></a>Apache Buildr</h3><a name="Apache_Buildr"></a>
-<div class="source"><pre class="prettyprint linenums">'com.example:spring-boot-starter-thymeleaf:jar:0.0.1-SNAPSHOT'</pre></div></div>
+<div class="source"><pre class="prettyprint linenums">'com.example:mvn-spring-boot-thymeleaf-nodejs:jar:0.0.1-SNAPSHOT'</pre></div></div>
 <div class="section">
 <h3><a name="Apache_Ivy"></a>Apache Ivy</h3><a name="Apache_Ivy"></a>
-<div class="source"><pre class="prettyprint linenums">&lt;dependency org=&quot;com.example&quot; name=&quot;spring-boot-starter-thymeleaf&quot; rev=&quot;0.0.1-SNAPSHOT&quot;&gt;
-  &lt;artifact name=&quot;spring-boot-starter-thymeleaf&quot; type=&quot;jar&quot; /&gt;
+<div class="source"><pre class="prettyprint linenums">&lt;dependency org=&quot;com.example&quot; name=&quot;mvn-spring-boot-thymeleaf-nodejs&quot; rev=&quot;0.0.1-SNAPSHOT&quot;&gt;
+  &lt;artifact name=&quot;mvn-spring-boot-thymeleaf-nodejs&quot; type=&quot;jar&quot; /&gt;
 &lt;/dependency&gt;</pre></div></div>
 <div class="section">
 <h3><a name="Groovy_Grape"></a>Groovy Grape</h3><a name="Groovy_Grape"></a>
 <div class="source"><pre class="prettyprint linenums">@Grapes(
-@Grab(group='com.example', module='spring-boot-starter-thymeleaf', version='0.0.1-SNAPSHOT')
+@Grab(group='com.example', module='mvn-spring-boot-thymeleaf-nodejs', version='0.0.1-SNAPSHOT')
 )</pre></div></div>
 <div class="section">
 <h3><a name="GradleGrails"></a>Gradle/Grails</h3><a name="GradleGrails"></a>
-<div class="source"><pre class="prettyprint linenums">compile 'com.example:spring-boot-starter-thymeleaf:0.0.1-SNAPSHOT'</pre></div></div>
+<div class="source"><pre class="prettyprint linenums">compile 'com.example:mvn-spring-boot-thymeleaf-nodejs:0.0.1-SNAPSHOT'</pre></div></div>
 <div class="section">
 <h3><a name="Scala_SBT"></a>Scala SBT</h3><a name="Scala_SBT"></a>
-<div class="source"><pre class="prettyprint linenums">libraryDependencies += &quot;com.example&quot; % &quot;spring-boot-starter-thymeleaf&quot; % &quot;0.0.1-SNAPSHOT&quot;</pre></div></div>
+<div class="source"><pre class="prettyprint linenums">libraryDependencies += &quot;com.example&quot; % &quot;mvn-spring-boot-thymeleaf-nodejs&quot; % &quot;0.0.1-SNAPSHOT&quot;</pre></div></div>
 <div class="section">
 <h3><a name="Leiningen"></a>Leiningen</h3><a name="Leiningen"></a>
-<div class="source"><pre class="prettyprint linenums">[com.example/spring-boot-starter-thymeleaf &quot;0.0.1-SNAPSHOT&quot;]</pre></div></div></div>
+<div class="source"><pre class="prettyprint linenums">[com.example/mvn-spring-boot-thymeleaf-nodejs &quot;0.0.1-SNAPSHOT&quot;]</pre></div></div></div>
         </div>
       </div>
     </div>
@@ -108,7 +110,7 @@
       <div class="container-fluid">
         <div class="row-fluid">
             <p>Copyright &copy;2017
-<a href="http://www.spring.io">Pivotal Software, Inc.</a>.
+<a href="https://github.com/gregswindle">gregswindle</a>.
 All rights reserved.</p>
         </div>
         </div>

@@ -10,8 +10,5 @@ const config = {
   DEBUG: true
 }
 
-let markdownPath = path.join(__dirname, 'README.md')
-markdownMagic(markdownPath, config)
-
-markdownPath = path.join(__dirname, '.github/CONTRIBUTING.md')
+let markdownPath = path.join(__dirname, '*.md')
 markdownMagic(markdownPath, config)

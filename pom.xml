@@ -4,12 +4,53 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>spring-boot-starter-thymeleaf</artifactId>
+	<artifactId>mvn-spring-boot-thymeleaf-nodejs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-starter-thymeleaf</name>
+	<name>mvn-spring-boot-thymeleaf-nodejs</name>
 	<description>Starter project for designing HTML templates with Spring Boot, Thymeleaf, and Node.js tooling.</description>
+
+  <url>https://github.com/gregswindle/mvn-spring-boot-thymeleaf-nodejs</url>
+	<inceptionYear>2017</inceptionYear>
+	<organization>
+		<name>gregswindle</name>
+		<url>https://github.com/gregswindle</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>MIT</name>
+			<url>LICENSE</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<name>Greg Swindle</name>
+			<url>https://github.com/gregswindle</url>
+			<id>gregswindle</id>
+			<email>greg@swindle.net</email>
+			<timezone>UTC-05:00</timezone>
+		</developer>
+	</developers>
+
+
+	<scm>
+		<url>https://github.com/gregswindle/mvn-spring-boot-thymeleaf-nodejs</url>
+		<connection>scm:git:https://github.com/gregswindle/mvn-spring-boot-thymeleaf-nodejs</connection>
+		<developerConnection>scm:git:https://github.com/gregswindle/mvn-spring-boot-thymeleaf-nodejs</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
+
+
+
+	<issueManagement>
+		<system>GitHub</system>
+		<url>${project.url}/issues</url>
+	</issueManagement><ciManagement>
+		<system>travis-ci</system>
+		<url>https://travis-ci.org/gregswindle/mvn-spring-boot-thymeleaf-nodejs</url>
+	</ciManagement>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -27,14 +68,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<snyk.api.token>${env.SNYK_TOKEN}</snyk.api.token>
-		<!-- Setting failOnSeverity to any of the values (low, medium or high) 
-			will fail the Maven build if a severity is found at or above what was configured. 
-			This configuration is optional, and will be set to low if not defined. Setting 
+		<!-- Setting failOnSeverity to any of the values (low, medium or high)
+			will fail the Maven build if a severity is found at or above what was configured.
+			This configuration is optional, and will be set to low if not defined. Setting
 			it to false will never fail the build. -->
 		<snyk.failOnSeverity>false</snyk.failOnSeverity>
 		<snyk.maven.plugin.version>1.1.1</snyk.maven.plugin.version>
-		<!-- The org configuration element sets under which of your Snyk organizations 
-			the project will be recorded. Leaving out this configuration will record 
+		<!-- The org configuration element sets under which of your Snyk organizations
+			the project will be recorded. Leaving out this configuration will record
 			the project under your default organization. -->
 		<snyk.org>gregswindle</snyk.org>
 	</properties>
@@ -107,7 +148,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<executions>
-					<!-- Required: The following will ensure `npm install` is called before 
+					<!-- Required: The following will ensure `npm install` is called before
 						anything else during the 'Default Lifecycle' -->
 					<execution>
 						<id>npm install (initialize)</id>
@@ -122,7 +163,7 @@
 							</arguments>
 						</configuration>
 					</execution>
-					<!-- Required: The following will ensure `npm install` is called before 
+					<!-- Required: The following will ensure `npm install` is called before
 						anything else during the 'Clean Lifecycle' -->
 					<execution>
 						<id>npm install (clean)</id>
@@ -138,7 +179,7 @@
 						</configuration>
 					</execution>
 
-					<!-- Optional: The following will output the npm configuration. I do 
+					<!-- Optional: The following will output the npm configuration. I do
 						this so my CI logs will show the npm information used for the build -->
 					<execution>
 						<id>npm config list (validate)</id>
@@ -155,7 +196,7 @@
 						</configuration>
 					</execution>
 
-					<!-- Required: This following calls `npm run build` where 'build' is 
+					<!-- Required: This following calls `npm run build` where 'build' is
 						the script name I used in my project, change this if yours is different -->
 					<execution>
 						<id>npm run build (compile)</id>
@@ -173,8 +214,8 @@
 					</execution>
 
 
-					<!-- Required: The following will run unit tests. My test scripts in 
-						npm look for the property 'skipTests', so I map it to 'maven.test.skip' Note: 
+					<!-- Required: The following will run unit tests. My test scripts in
+						npm look for the property 'skipTests', so I map it to 'maven.test.skip' Note:
 						the douple '-' syntax used below only works with npm >= 2. -->
 					<execution>
 						<id>npm run test (test)</id>
@@ -185,12 +226,15 @@
 						<configuration>
 							<executable>npm</executable>
 							<arguments>
+                <argument>run</argument>
 								<argument>test</argument>
+								<argument>--</argument>
+								<argument>--skipTests=${maven.test.skip}</argument>
 							</arguments>
 						</configuration>
 					</execution>
 
-					<!-- Required: The following calls the npm script that cleans up the 
+					<!-- Required: The following calls the npm script that cleans up the
 						build. -->
 					<execution>
 						<id>npm run clean (clean)</id>

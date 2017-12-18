@@ -49,7 +49,7 @@
     "eslint-plugin-xss": "0.1.8",
     "fixpack": "2.3.1",
     "jest": "21.2.1",
-    "jest-cli": "21.2.1",
+    "jest-cli": "22.0.0",
     "markdown-magic": "0.1.19",
     "markdown-magic-dependency-table": "1.3.2",
     "markdown-magic-install-command": "1.3.1",
